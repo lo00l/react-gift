@@ -1,0 +1,10 @@
+
+.caption {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2em;
+  color: #ffd5f9;
+  text-align: center;
+}

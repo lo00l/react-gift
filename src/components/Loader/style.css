@@ -1,0 +1,13 @@
+.caption {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  padding: 5px;
+  background: #00000088;
+  border-radius: 5px;
+  font-weight: bold;
+  color: #fff;
+  font-size: 1.5em;
+}

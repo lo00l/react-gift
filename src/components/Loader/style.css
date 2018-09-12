@@ -11,3 +11,22 @@
   color: #fff;
   font-size: 1.5em;
 }
+
+.load-error {
+  width: 90%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.load-error img {
+  max-width: 100%;
+}
+
+.load-error div {
+  padding: 5px;
+  background: #ff000088;
+  border-radius: 5px;
+  font-weight: bold;
+  color: #fff;
+  font-size: 1.5em;
+}

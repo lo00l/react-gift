@@ -3,8 +3,117 @@ import './style.css';
 import Slider from './Slider';
 import tuchkaImg from './img/tuchka.jpg';
 import gavrikImg from './img/gavrik.jpg';
-import Question from '../TextQuestion';
+import TextQuestion from '../TextQuestion';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
+const questions = [
+  {
+    path: '/wassup/QRH',
+    component: TextQuestion,
+    props: {
+      question: 'Начнем с простого. Сколько тебе исполняется годиков?',
+      answer: '21',
+      comment: 'Ух ты, ты знаешь свой возраст!'
+    },
+    nextUrl: '/wassup/GCI'
+  },
+  {
+    path: '/wassup/GCI',
+    component: TextQuestion,
+    props: {
+      question: 'Несколько "концертных" вопросов. На концерт какой группы вы с Лешей пошли вместе в первый раз?',
+      answer: 'Нейромонах Феофанн',
+      comment: 'А у тебя хорошая память! :)'
+    },
+    nextUrl: '/wassup/ROK'
+  },
+  {
+    path: '/wassup/ROK',
+    component: TextQuestion,
+    props: {
+      question: 'Ок, а сколько концертов всего вы посетили?',
+      answer: '22',
+      comment: 'Это был сложный вопрос, верно?'
+    },
+    nextUrl: '/wassup/APL'
+  },
+  {
+    path: '/wassup/APL',
+    component: TextQuestion,
+    props: {
+      question: 'А на какую группу вы ходили больше всего раз?',
+      answer: 'Элизиум',
+      comment: 'Именно! А дальше будут стихи!'
+    },
+    nextUrl: '/wassup/NFT'
+  },
+  {
+    path: '/wassup/NFT',
+    component: TextQuestion,
+    props: {
+      question: [
+        'Об этом не расскажут по телеку,',
+        'Об этом не споет Шнур,',
+        'Но если Леша скажет "мяу",',
+        'То Катя ответит...',
+      ],
+      answer: 'Мур',
+      comment: 'Правильно!',
+      placeholder: 'Что ответит Катя?'
+    },
+    nextUrl: '/wassup/RUM'
+  },
+  {
+    path: '/wassup/RUM',
+    component: TextQuestion,
+    props: {
+      question: 'Начнем с простого. Сколько тебе исоплняется годиков?',
+      answer: '21',
+      comment: 'Ок, свой возраст ты знаешь!'
+    },
+    nextUrl: '/wassup/KRA'
+  },
+  {
+    path: '/wassup/KRA',
+    component: TextQuestion,
+    props: {
+      question: 'Начнем с простого. Сколько тебе исоплняется годиков?',
+      answer: '21',
+      comment: 'Ок, свой возраст ты знаешь!'
+    },
+    nextUrl: '/wassup/VIM'
+  },
+  {
+    path: '/wassup/VIM',
+    component: TextQuestion,
+    props: {
+      question: 'Начнем с простого. Сколько тебе исоплняется годиков?',
+      answer: '21',
+      comment: 'Ок, свой возраст ты знаешь!'
+    },
+    nextUrl: '/wassup/LJF'
+  },
+  {
+    path: '/wassup/LJF',
+    component: TextQuestion,
+    props: {
+      question: 'Начнем с простого. Сколько тебе исоплняется годиков?',
+      answer: '21',
+      comment: 'Ок, свой возраст ты знаешь!'
+    },
+    nextUrl: '/wassup/BQP'
+  },
+  {
+    path: '/wassup/BQP',
+    component: TextQuestion,
+    props: {
+      question: 'Начнем с простого. Сколько тебе исоплняется годиков?',
+      answer: '21',
+      comment: 'Ок, свой возраст ты знаешь!'
+    },
+    nextUrl: ''
+  },
+]
 
 class Cats extends Component {
   constructor(props) {
@@ -72,8 +181,9 @@ class Cats extends Component {
             <div className="quiz">
               <Route path="/wassup" exact component={Slider} />
               <Route path="/wassup/go" render={(props) => (
-                <Question question={"Начнем с простого. Сколько тебе исоплняется годиков?"}
+                <TextQuestion question={"Начнем с простого. Сколько тебе исоплняется годиков?"}
                   answer="Ответ 1"
+                  comment="Ок, свой возраст ты знаешь!"
                   nextUrl="/wassup/yes" />
               )} />
             </div>

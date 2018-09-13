@@ -4,19 +4,22 @@ import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Snackbar from '@material-ui/core/Snackbar';
+import './style.css';
 
 class TextQuestion extends Component {
   constructor(props) {
     super(props);
     this.nextUrl = props.nextUrl;
     this.question = props.question;
+    this.comment = props.comment;
     this.answer = props.answer;
     this.checkCallback = this.checkAnswer.bind(this);
     this.inputChangeCallback = this.inputChange.bind(this);
-    this.snackbarCloseCallback = this.snackbarClose.bind(this);
+    this.wrongSnackbarCloseCallback = this.wrongSnackbarClose.bind(this);
     this.state = {
       solved: false,
-      showSnackbar: false
+      showWrongSnackbar: false,
+      showRightSnackbar: false
     };
   }
 
@@ -27,7 +30,7 @@ class TextQuestion extends Component {
       )
     } else {
       return (
-        <div>
+        <div className="question-wrapper">
           <Paper className="question">
             <div>{this.question}</div>
             <div className="answer">
@@ -42,9 +45,13 @@ class TextQuestion extends Component {
             </div>
           </Paper>
           <Snackbar
-            open={this.state.showSnackbar}
-            onClose={this.snackbarCloseCallback}
+            open={this.state.showWrongSnackbar}
+            onClose={this.wrongSnackbarCloseCallback}
             message={<span>{this.getWrongText()}</span>}
+          />
+          <Snackbar
+            open={this.state.showRightSnackbar}
+            message={<span>{this.comment}</span>}
           />
         </div>
       )
@@ -53,9 +60,10 @@ class TextQuestion extends Component {
 
   checkAnswer() {
     if (this.inputValue == this.answer) {
-      this.setState({solved: true});
+      this.setState({showRightSnackbar: true});
+      setTimeout(() => {this.setState({solved: true})}, 3000);
     } else {
-      this.setState({showSnackbar: true});
+      this.setState({showWrongSnackbar: true});
     }
   }
 
@@ -63,12 +71,12 @@ class TextQuestion extends Component {
       this.inputValue = event.target.value;
   }
 
-  snackbarClose() {
-    this.setState({showSnackbar: false});
+  wrongSnackbarClose() {
+    this.setState({showWrongSnackbar: false});
   }
 
   getWrongText() {
-    return 'Подумай еще!';
+    return 'Подумой еще!';
   }
 }
 

@@ -17,7 +17,7 @@ class Preloader extends Component {
 
   componentDidMount() {
     setTimeout(() => {this.setState({showError: true})}, 5000);
-    setTimeout(() => {this.setState({ticked: true})}, 7000);
+    setTimeout(() => {this.setState({ticked: true})}, 9000);
   }
 
   render() {

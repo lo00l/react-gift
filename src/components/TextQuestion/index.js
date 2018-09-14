@@ -10,9 +10,16 @@ class TextQuestion extends Component {
   constructor(props) {
     super(props);
     this.nextUrl = props.nextUrl;
-    this.question = props.question;
+    if (Array.isArray(props.question)) {
+      this.question = props.question.map((questionPart, index) => (
+        <p key={index}>{questionPart}</p>
+      ));
+    } else {
+      this.question = props.question;
+    }
     this.comment = props.comment;
     this.answer = props.answer;
+    this.placeholder = props.placeholder || 'Ответ';
     this.checkCallback = this.checkAnswer.bind(this);
     this.inputChangeCallback = this.inputChange.bind(this);
     this.wrongSnackbarCloseCallback = this.wrongSnackbarClose.bind(this);
@@ -34,14 +41,16 @@ class TextQuestion extends Component {
           <Paper className="question">
             <div>{this.question}</div>
             <div className="answer">
-              <TextField label="Ответ" type="text"
+              <TextField
+                label={this.placeholder}
+                type="text"
                 onChange={this.inputChangeCallback}
                 fullWidth />
               <Button className="check"
               variant="contained"
               size="large"
               color="primary"
-              onClick={this.checkCallback}>Мурк</Button>
+              onClick={this.checkCallback}>Бульк</Button>
             </div>
           </Paper>
           <Snackbar

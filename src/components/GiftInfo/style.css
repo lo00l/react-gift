@@ -1,0 +1,10 @@
+.gift-info {
+  width: 90%;
+  padding: 10px;
+  background-color: #ff9a0088 !important;
+}
+
+.gift-info * {
+  color: #333 !important;
+  text-align: center;
+}

@@ -18,8 +18,7 @@
 }
 
 .cat.minimized {
-  width: 100px;
-  height: 100px;
+  width: 20%;
   top: 20px;
   transform: translate(-50%, 0);
 }
